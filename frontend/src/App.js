@@ -31,22 +31,22 @@ function App() {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
-            <Link to="/">amazona</Link>
+            <Link to="/">Biblioteca Garcia Marquez</Link>
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
+            <a href="cart/cart.html">Carrito</a>
             {userInfo ? (
-              <Link to="/profile">{userInfo.name}</Link>
+              <Link to="/profile">Perfil ({userInfo.name})</Link>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">Iniciar Sesión</Link>
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
-                <a href="#">Admin</a>
+                <a href="#">Administrador</a>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="/orders">Orders</Link>
-                    <Link to="/products">Products</Link>
+                    <Link to="/orders">Pedidos</Link>
+                    <Link to="/products">Productos</Link>
                   </li>
                 </ul>
               </div>
@@ -54,17 +54,49 @@ function App() {
           </div>
         </header>
         <aside className="sidebar">
-          <h3>Shopping Categories</h3>
+          <h3>Categorias de compra</h3>
           <button className="sidebar-close-button" onClick={closeMenu}>
             x
           </button>
           <ul className="categories">
             <li>
-              <Link to="/category/Pants">Pants</Link>
+              <Link to="/category/Novela">Novela</Link>
             </li>
 
             <li>
-              <Link to="/category/Shirts">Shirts</Link>
+              <Link to="/category/Realismo Magico">Realismo Magico</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Terror">Terror</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Biografia">Biografía</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Romantico">Romántico</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Historietas">Historietas</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Policial">Policial</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Ficcion">Ciencia Ficción</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Paranormal">Paranormal</Link>
+            </li>
+
+            <li>
+              <Link to="/category/Distopica">Distópica</Link>
             </li>
           </ul>
         </aside>
@@ -85,7 +117,7 @@ function App() {
             <Route path="/" exact={true} component={HomeScreen} />
           </div>
         </main>
-        <footer className="footer">All right reserved.</footer>
+        <footer className="footer">Todos los derechos reservados. Biblioteca Garcia Marquez 2022</footer>
       </div>
     </BrowserRouter>
   );

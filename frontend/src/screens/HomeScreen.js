@@ -31,7 +31,9 @@ function HomeScreen(props) {
 
   return (
     <>
-      {category && <h2>{category}</h2>}
+
+      <h1 className='main-title'>Nuestros Productos</h1>
+      {category && <h2 className='category'>Categoría: {category}</h2>}
 
       <ul className="filter">
         <li>
@@ -40,20 +42,20 @@ function HomeScreen(props) {
               name="searchKeyword"
               onChange={(e) => setSearchKeyword(e.target.value)}
             />
-            <button type="submit">Search</button>
+            <button type="submit">Buscar</button>
           </form>
         </li>
         <li>
-          Sort By{' '}
+          Ordenar: {' '}
           <select name="sortOrder" onChange={sortHandler}>
-            <option value="">Newest</option>
-            <option value="lowest">Lowest</option>
-            <option value="highest">Highest</option>
+            <option value="">El más reciente</option>
+            <option value="lowest">Precio mas alto</option>
+            <option value="highest">Precio más bajo</option>
           </select>
         </li>
       </ul>
       {loading ? (
-        <div>Loading...</div>
+        <div>Cargando...</div>
       ) : error ? (
         <div>{error}</div>
       ) : (
@@ -76,9 +78,10 @@ function HomeScreen(props) {
                 <div className="product-rating">
                   <Rating
                     value={product.rating}
-                    text={product.numReviews + ' reviews'}
+                    text={product.numReviews + ' reseñas'}
                   />
                 </div>
+                
               </div>
             </li>
           ))}

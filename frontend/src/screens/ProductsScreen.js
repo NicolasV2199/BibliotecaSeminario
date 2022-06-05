@@ -98,9 +98,9 @@ function ProductsScreen(props) {
   return (
     <div className="content content-margined">
       <div className="product-header">
-        <h3>Products</h3>
+        <h3>Productos</h3>
         <button className="button primary" onClick={() => openModal({})}>
-          Create Product
+          Agregar Producto
         </button>
       </div>
       {modalVisible && (
@@ -108,15 +108,15 @@ function ProductsScreen(props) {
           <form onSubmit={submitHandler}>
             <ul className="form-container">
               <li>
-                <h2>Create Product</h2>
+                <h2>Agregar Producto</h2>
               </li>
               <li>
-                {loadingSave && <div>Loading...</div>}
+                {loadingSave && <div>Cargando...</div>}
                 {errorSave && <div>{errorSave}</div>}
               </li>
 
               <li>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Nombre</label>
                 <input
                   type="text"
                   name="name"
@@ -126,7 +126,7 @@ function ProductsScreen(props) {
                 ></input>
               </li>
               <li>
-                <label htmlFor="price">Price</label>
+                <label htmlFor="price">Precio</label>
                 <input
                   type="text"
                   name="price"
@@ -136,7 +136,7 @@ function ProductsScreen(props) {
                 ></input>
               </li>
               <li>
-                <label htmlFor="image">Image</label>
+                <label htmlFor="image">Imagen</label>
                 <input
                   type="text"
                   name="image"
@@ -145,10 +145,10 @@ function ProductsScreen(props) {
                   onChange={(e) => setImage(e.target.value)}
                 ></input>
                 <input type="file" onChange={uploadFileHandler}></input>
-                {uploading && <div>Uploading...</div>}
+                {uploading && <div>Subiendo...</div>}
               </li>
               <li>
-                <label htmlFor="brand">Brand</label>
+                <label htmlFor="brand">Editorial</label>
                 <input
                   type="text"
                   name="brand"
@@ -158,7 +158,7 @@ function ProductsScreen(props) {
                 ></input>
               </li>
               <li>
-                <label htmlFor="countInStock">CountInStock</label>
+                <label htmlFor="countInStock">Cantidad en inventario</label>
                 <input
                   type="text"
                   name="countInStock"
@@ -168,7 +168,7 @@ function ProductsScreen(props) {
                 ></input>
               </li>
               <li>
-                <label htmlFor="name">Category</label>
+                <label htmlFor="name">Categoría</label>
                 <input
                   type="text"
                   name="category"
@@ -178,7 +178,7 @@ function ProductsScreen(props) {
                 ></input>
               </li>
               <li>
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">Descripción</label>
                 <textarea
                   name="description"
                   value={description}
@@ -188,7 +188,7 @@ function ProductsScreen(props) {
               </li>
               <li>
                 <button type="submit" className="button primary">
-                  {id ? 'Update' : 'Create'}
+                  {id ? 'Actualizar' : 'Agregar'}
                 </button>
               </li>
               <li>
@@ -197,7 +197,7 @@ function ProductsScreen(props) {
                   onClick={() => setModalVisible(false)}
                   className="button secondary"
                 >
-                  Back
+                  Volver
                 </button>
               </li>
             </ul>
@@ -210,11 +210,11 @@ function ProductsScreen(props) {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Category</th>
-              <th>Brand</th>
-              <th>Action</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Categoría</th>
+              <th>Editorial</th>
+              <th>Opción</th>
             </tr>
           </thead>
           <tbody>
@@ -227,13 +227,13 @@ function ProductsScreen(props) {
                 <td>{product.brand}</td>
                 <td>
                   <button className="button" onClick={() => openModal(product)}>
-                    Edit
+                    Editar
                   </button>{' '}
                   <button
-                    className="button"
+                    className="button-danger"
                     onClick={() => deleteHandler(product)}
                   >
-                    Delete
+                    Eliminar
                   </button>
                 </td>
               </tr>

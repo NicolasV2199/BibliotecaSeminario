@@ -29,32 +29,32 @@ function SigninScreen(props) {
     <form onSubmit={submitHandler} >
       <ul className="form-container">
         <li>
-          <h2>Sign-In</h2>
+          <h2>Iniciar Sesión</h2>
         </li>
         <li>
-          {loading && <div>Loading...</div>}
+          {loading && <div>Cargando...</div>}
           {error && <div>{error}</div>}
         </li>
         <li>
           <label htmlFor="email">
-            Email
+            Correo
           </label>
           <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}>
           </input>
         </li>
         <li>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Contraseña</label>
           <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
           </input>
         </li>
         <li>
-          <button type="submit" className="button primary">Signin</button>
+          <button type="submit" className="button primary">Iniciar Sesión</button>
         </li>
         <li>
-          New to amazona?
+          ¿Eres nuevo en nuestra biblioteca?
         </li>
         <li>
-          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Create your amazona account</Link>
+          <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button secondary text-center" >Crea tu cuenta</Link>
         </li>
       </ul>
     </form>

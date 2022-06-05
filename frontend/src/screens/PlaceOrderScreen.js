@@ -16,8 +16,8 @@ function PlaceOrderScreen(props) {
     props.history.push("/payment");
   }
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const shippingPrice = itemsPrice > 100 ? 0 : 10;
-  const taxPrice = 0.15 * itemsPrice;
+  const shippingPrice = itemsPrice > 100000 ? 0 : 15000;
+  const taxPrice = 0.19 * itemsPrice;
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
 
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ function PlaceOrderScreen(props) {
       <div className="placeorder-info">
         <div>
           <h3>
-            Shipping
+            Envío
           </h3>
           <div>
             {cart.shipping.address}, {cart.shipping.city},
@@ -50,25 +50,25 @@ function PlaceOrderScreen(props) {
           </div>
         </div>
         <div>
-          <h3>Payment</h3>
+          <h3>Pago</h3>
           <div>
-            Payment Method: {cart.payment.paymentMethod}
+            Metodo de pago: {cart.payment.paymentMethod}
           </div>
         </div>
         <div>
           <ul className="cart-list-container">
             <li>
               <h3>
-                Shopping Cart
+                Carrito de compra
           </h3>
               <div>
-                Price
+                Precio
           </div>
             </li>
             {
               cartItems.length === 0 ?
                 <div>
-                  Cart is empty
+                  El carrito está vacío
           </div>
                 :
                 cartItems.map(item =>
@@ -84,7 +84,7 @@ function PlaceOrderScreen(props) {
 
                       </div>
                       <div>
-                        Qty: {item.qty}
+                        Cantidad: {item.qty}
                       </div>
                     </div>
                     <div className="cart-price">
@@ -101,25 +101,25 @@ function PlaceOrderScreen(props) {
       <div className="placeorder-action">
         <ul>
           <li>
-            <button className="button primary full-width" onClick={placeOrderHandler} >Place Order</button>
+            <button className="button primary full-width" onClick={placeOrderHandler} >Realizar pedido</button>
           </li>
           <li>
-            <h3>Order Summary</h3>
+            <h3>Resumen del pedido</h3>
           </li>
           <li>
             <div>Items</div>
             <div>${itemsPrice}</div>
           </li>
           <li>
-            <div>Shipping</div>
+            <div>Envío</div>
             <div>${shippingPrice}</div>
           </li>
           <li>
-            <div>Tax</div>
+            <div>Iva</div>
             <div>${taxPrice}</div>
           </li>
           <li>
-            <div>Order Total</div>
+            <div>Precio Total</div>
             <div>${totalPrice}</div>
           </li>
         </ul>
